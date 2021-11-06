@@ -9,7 +9,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 	public function test(){
-		echo  '	esse é o test';
+		$this->load->view('teste');
 
 	}
 }
