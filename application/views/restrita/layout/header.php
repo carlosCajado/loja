@@ -4,12 +4,19 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-        <title>CAJADO MOTOS</title>
+        <?php echo (isset($titulo) ? '<title> CAJADO MOTOS | '.$titulo.'</title>':'<title>CAJADO MOTOS - Novas e Usadas</title>')?>
    <!-- General CSS Files -->
    <link rel="stylesheet" href="<?php echo base_url('public/assets/css/app.min.css'); ?>">
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url('public/assets/css/style.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('public/assets/css/components.css'); ?>">
+  <?php if(isset($styles)) :?>
+        <?php foreach($styles as $style) :?>
+            
+            <link rel="stylesheet" href="<?php echo base_url('public/assets/'.$style); ?>">
+
+        <?php endforeach;?>
+  <?php endif; ?>
   
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="<?php echo base_url('public/assets/css/custom.css'); ?>">
