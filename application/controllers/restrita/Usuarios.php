@@ -30,5 +30,26 @@ public function index(){
     $this->load->view('restrita/usuarios/index');
     $this->load->view('restrita/layout/footer');
 
+
+    }
+    public function core($usuario_id = NULL){
+        if (!$usuario_id){
+            //cadastrar
+
+        }
+        else{
+            if(!$user = $this->ion_auth->user($usuario_id)->row()){
+                exit('usuatio não encontrado');
+            }else{
+                $data = array(
+                    'titulo' =>'Editar usuario'
+                );
+                $this->load->view('restrita/layout/header', $data);
+                $this->load->view('restrita/usuarios/core');
+                $this->load->view('restrita/layout/footer');
+            
+            }
+        }
+
     }
 }

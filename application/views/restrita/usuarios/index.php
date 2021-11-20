@@ -11,7 +11,7 @@
           <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Basic DataTables</h4>
+                  <h4><?php echo $titulo; ?></h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -25,7 +25,7 @@
                             <th>Email</th>
                             <th>Usuário</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th class="nosort">Opções</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -35,12 +35,12 @@
                               <td><?php echo $usuario->first_name.''.$usuario->last_name; ?></td>
                               <td><?php echo $usuario->email; ?></td>
                               <td><?php echo $usuario->username; ?></td>
-                              <td><?php echo $usuario->active; ?></td>
-                           <!-- <td>
-                              <div class="badge badge-success badge-shadow">Completed</div>
-                            </td> -->
-                                                       
-                            <td><a href="#" class="btn btn-primary">Detail</a></td>
+                              <td><?php echo ($usuario->active == 1 ? '<span class="badge badge-success">Ativo</span>': '<span class="badge badge-danger"Inativo</span>'); ?></td>
+                        
+                            <td>
+                            <a href="<?php echo base_url(('restrita/usuarios/core/'.$usuario->id)) ?>" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
+                            </td>
                       
                             <?php endforeach; ?>
                           </tr>
