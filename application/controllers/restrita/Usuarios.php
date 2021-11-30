@@ -38,11 +38,17 @@ public function index(){
 
         }
         else{
-            if(!$user = $this->ion_auth->user($usuario_id)->row()){
-                exit('usuatio não encontrado');
+            if(!$usuario = $this->ion_auth->user($usuario_id)->row()){
+                $this->session->set_flashdata('erro','Usuario não Encontrado');
+                redirect('restrita/usuarios');
+                
             }else{
                 $data = array(
-                    'titulo' =>'Editar usuario'
+                    'titulo' =>'Editar usuario',
+                    'usuario' => $usuario,
+                    'perfil' => $this->ion_auth-> get_users_groups ($usuario_id)->row(),
+                    'grupos' => $this->ion_auth->groups()->result(),
+                    
                 );
                 $this->load->view('restrita/layout/header', $data);
                 $this->load->view('restrita/usuarios/core');
