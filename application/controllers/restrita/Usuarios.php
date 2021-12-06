@@ -43,16 +43,26 @@ public function index(){
                 redirect('restrita/usuarios');
                 
             }else{
-                $data = array(
-                    'titulo' =>'Editar usuario',
-                    'usuario' => $usuario,
-                    'perfil' => $this->ion_auth-> get_users_groups ($usuario_id)->row(),
-                    'grupos' => $this->ion_auth->groups()->result(),
-                    
-                );
-                $this->load->view('restrita/layout/header', $data);
-                $this->load->view('restrita/usuarios/core');
-                $this->load->view('restrita/layout/footer');
+
+                $this->form_validation->set_rules('first_name','Nome', 'trim|required');
+                if($this->form_validation->run()){
+                    echo '<pre>';
+                    print_r($this->input->post());
+                    exit();
+                }else{
+                    //erro de validação 
+                    $data = array(
+                        'titulo' =>'Editar usuario',
+                        'usuario' => $usuario,
+                        'perfil' => $this->ion_auth-> get_users_groups ($usuario_id)->row(),
+                        'grupos' => $this->ion_auth->groups()->result(),
+                        
+                    );
+                    $this->load->view('restrita/layout/header', $data);
+                    $this->load->view('restrita/usuarios/core');
+                    $this->load->view('restrita/layout/footer');
+                     
+                }
             
             }
         }
