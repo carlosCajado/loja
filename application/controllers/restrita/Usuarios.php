@@ -44,7 +44,11 @@ public function index(){
                 
             }else{
 
-                $this->form_validation->set_rules('first_name','Nome', 'trim|required');
+                $this->form_validation->set_rules('first_name','Nome', 'trim|required|min_length[4] |max_length[45]');
+                $this->form_validation->set_rules('last_name','Sobrenome', 'trim|required|min_length[4] |max_length[45]');
+                $this->form_validation->set_rules('email','E-mail', 'trim|required|min_length[4] |max_length[45]|valid_email|callback_valida_email');
+                $this->form_validation->set_rules('username','Usuário', 'trim|required|min_length[4] |max_length[45]');
+
                 if($this->form_validation->run()){
                     echo '<pre>';
                     print_r($this->input->post());
@@ -67,5 +71,26 @@ public function index(){
             }
         }
 
+    }
+//função responsavel por validar o email
+    public function valida_email($email){
+        $usuario_id = $this->input->post('usuario_id');
+        if(! $usuario_id){
+            if($this->core_model->get_by_id('users', array('email'=>$email))){
+                $this->form_validation->set_message('valida_email', 'Esse enail já existe');
+                return false;
+            }else{
+                return true;
+            }
+            //cadastrar
+        }else{
+            //edidt
+            if($this->core_model->get_by_id('users', array('email'=>$email, 'id !='=> $usuario_id))){
+                $this->form_validation->set_message('valida_email', 'Esse enail já existe');
+                return false;
+            }else{
+                return true;
+            }
+        }
     }
 }
