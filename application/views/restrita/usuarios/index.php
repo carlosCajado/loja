@@ -10,8 +10,9 @@
           <div>
           <div class="col-12">
                 <div class="card">
-                  <div class="card-header">
-                  <h4><?php echo $titulo; ?></h4>
+                  <div class="card-header d-block">
+                    <h4><?php echo $titulo; ?></h4>
+                    <a class="brn btn-primary float-right" href="<?php echo base_url('restrita/usuarios/core');?>">Cadastrar</a>
                   </div>
                   <div class="card-body">
 
@@ -58,8 +59,9 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($usuarios as $usuario):?>
                           <tr>
-                            <?php foreach($usuarios as $usuario):?>
+
                               <td><?php echo $usuario->id; ?></td>
                               <td><?php echo $usuario->first_name.''.$usuario->last_name; ?></td>
                               <td><?php echo $usuario->email; ?></td>
@@ -70,9 +72,9 @@
                             <a href="<?php echo base_url(('restrita/usuarios/core/'.$usuario->id)) ?>" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
                             <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
                             </td>
-                      
-                            <?php endforeach; ?>
+
                           </tr>
+                        <?php endforeach; ?>
                         </tbody>
                       </table>
                     </div>

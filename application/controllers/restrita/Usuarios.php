@@ -33,8 +33,52 @@ public function index(){
 
     }
     public function core($usuario_id = NULL){
+        $usuario_id = (int) $usuario_id;
         if (!$usuario_id){
             //cadastrar
+            $this->form_validation->set_rules('first_name','Nome', 'trim|required|min_length[4] |max_length[45]');
+            $this->form_validation->set_rules('last_name','Sobrenome', 'trim|required|min_length[4] |max_length[45]');
+            $this->form_validation->set_rules('email','E-mail', 'trim|required|min_length[4] |max_length[45]|valid_email|callback_valida_email');
+            $this->form_validation->set_rules('username','Usuário', 'trim|required|min_length[4] |max_length[45]');
+            $this->form_validation->set_rules('password','Senha', 'trim|required|min_length[4] |max_length[45]');
+            $this->form_validation->set_rules('confirma','confirma', 'trim|required|matches[password]');
+            if($this->form_validation->run()){
+                    // echo '<pre>';
+                    // print_r($this->input->post());
+                    // exit();
+                    $username = $this->input->post('username');
+                    $password = $this->input->post('password');
+                    $email = $this->input->post('email');
+                    $additional_data = array(
+                        'first_name'=>  $this->input->post('first_name'),
+                        'last_name'=> $this->input->post('last_name'),
+                        'active'=> $this->input->post('active'),
+
+                    );
+                    $group = array($this->input->post('perfil'));
+                    // echo '<pre>';
+                    // print_r($username);
+                    // exit();
+                    if($this->ion_auth->register($username,  $password, $email, $additional_data, $group )){
+                        $this->session->set_flashdata('Sucesso', 'Dados Salvos com sucesso');
+                        
+                    }else{
+                        $this->session->set_flashdata('erro', $this->ion_auth->errors());
+
+                    }
+
+                    redirect('restrita/usuarios');
+            }else{
+                    //erro de validação 
+                    $data = array(
+                        'titulo' =>'Cadastrar usuário',
+                        'grupos' => $this->ion_auth->groups()->result(),
+                        
+                    );
+                    $this->load->view('restrita/layout/header', $data);
+                    $this->load->view('restrita/usuarios/core');
+                    $this->load->view('restrita/layout/footer');
+            }
 
         }
         else{
@@ -79,7 +123,7 @@ public function index(){
                     // exit();
 
                    if( $this->ion_auth->update($usuario_id, $data)){
-                       $perfil = $this->input->post('perfil');
+                       $perfil = (int) $this->input->post('perfil');
                        if($perfil){
 
                          $this->ion_auth->remove_from_group(NULL, $usuario_id);
