@@ -15,6 +15,20 @@
                   </div>
                   <div class="card-body">
 
+                  <?php if($mensagem = $this->session->flashdata('Sucesso')): ?>
+                      <div class="alert alert-success alert-dismissible alert-has-icon">
+                      <div class="alert-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="alert-body">
+                        <div class="alert-title">DEU BOM !!</div>
+                          <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                          </button>
+                          <?php echo $mensagem; ?>
+                        </div>
+                    </div>
+
+                    <?php endif; ?>
+
                     <?php if($mensagem = $this->session->flashdata('erro')): ?>
                       <div class="alert alert-danger alert-dismissible alert-has-icon">
                       <div class="alert-icon"><i class="fas fa-dizzy"></i></div>
@@ -50,7 +64,7 @@
                               <td><?php echo $usuario->first_name.''.$usuario->last_name; ?></td>
                               <td><?php echo $usuario->email; ?></td>
                               <td><?php echo $usuario->username; ?></td>
-                              <td><?php echo ($usuario->active == 1 ? '<span class="badge badge-success">Ativo</span>': '<span class="badge badge-danger"Inativo</span>'); ?></td>
+                              <td><?php echo ($usuario->active == 1 ? '<span class="badge badge-success">Ativo</span>':'<span class="badge badge-danger">Inativo</span>'); ?></td>
                         
                             <td>
                             <a href="<?php echo base_url(('restrita/usuarios/core/'.$usuario->id)) ?>" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>

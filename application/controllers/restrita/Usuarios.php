@@ -48,11 +48,44 @@ public function index(){
                 $this->form_validation->set_rules('last_name','Sobrenome', 'trim|required|min_length[4] |max_length[45]');
                 $this->form_validation->set_rules('email','E-mail', 'trim|required|min_length[4] |max_length[45]|valid_email|callback_valida_email');
                 $this->form_validation->set_rules('username','Usuário', 'trim|required|min_length[4] |max_length[45]');
+                $this->form_validation->set_rules('password','Senha', 'trim|min_length[4] |max_length[45]');
+                $this->form_validation->set_rules('confirma','confirma', 'trim|matches[password]');
 
                 if($this->form_validation->run()){
-                    echo '<pre>';
-                    print_r($this->input->post());
-                    exit();
+                    // echo '<pre>';
+                    // print_r($this->input->post());
+                    // exit();
+                    $data = elements(
+                        array(
+                            'first_name',
+                            'last_name',
+                            'email',
+                            'username',
+                            'password',
+                            'active',
+                        ), $this->input->post()
+                    );
+
+                    $password = $this->input->post('password');
+                    //não atualiza a senha se a mesma não for passada
+                    if(!$password) {
+                        unset($data['password']);
+                    }
+                    //sanitizando o data
+                    $data = html_escape($data);
+                                       
+                    // echo '<pre>';
+                    // print_r($data);
+                    // exit();
+
+                   if( $this->ion_auth->update($usuario_id, $data)){
+                        $this->session->set_flashdata('Sucesso', 'Dados Salvos com sucesso');
+                   }else{
+                        $this->session->set_flashdata('erro', $this->ion_auth->errors());
+                   }
+                    redirect('restrita/usuarios');
+
+
                 }else{
                     //erro de validação 
                     $data = array(
