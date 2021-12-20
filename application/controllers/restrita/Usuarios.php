@@ -177,4 +177,30 @@ public function index(){
             }
         }
     }
+    //função responsavel por deletar usuario
+
+    public function delete($usuario_id= NULL){
+        $usuario_id = (int) $usuario_id;
+        if(!$usuario_id || !$this->ion_auth->user($usuario_id)->row()){
+                $this->session->set_flashdata('erro', 'usuario não encontrado');
+                redirect('restrita/usuarios');
+
+            //sem id
+        }else{
+            //delete
+            if($this->ion_auth->is_admin($usuario_id)){
+                $this->session->set_flashdata('erro', 'usuário administrador');
+                redirect('restrita/usuarios');
+            }
+            if($this->ion_auth->delete_user($usuario_id)){
+                $this->session->set_flashdata('Sucesso', 'usuário apagado');  
+            }else{
+                
+                $this->session->set_flashdata('erro', $this->ion_auth->errors());
+
+            }
+            redirect('restrita/usuarios'); 
+        }
+    }
+
 }

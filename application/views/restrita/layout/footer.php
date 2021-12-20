@@ -24,6 +24,19 @@
   <script src="<?php echo base_url('public/assets/js/util.js'); ?>"></script>
 <!-- Custom JS File -->
 <script src="<?php echo base_url('public/assets/js/custom.js'); ?>"></script>
+
+<script>
+$('.delete').on("click", function(event){
+  event.preventDefault();
+  var choice = confirm($(this).attr('data-confirm'));
+  if(choice){
+    window.location.href = $(this).attr('href');
+
+  }
+
+});
+
+</script>
     </body>
 
 

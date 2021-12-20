@@ -63,14 +63,14 @@
                           <tr>
 
                               <td><?php echo $usuario->id; ?></td>
-                              <td><?php echo $usuario->first_name.''.$usuario->last_name; ?></td>
+                              <td><?php echo $usuario->first_name.' '.$usuario->last_name; ?></td>
                               <td><?php echo $usuario->email; ?></td>
                               <td><?php echo ($this->ion_auth->is_admin($usuario->id)? 'Adiministrador' : 'Clientes'); ?></td>
                               <td><?php echo ($usuario->active == 1 ? '<span class="badge badge-success">Ativo</span>':'<span class="badge badge-danger">Inativo</span>'); ?></td>
                         
                             <td>
-                            <a href="<?php echo base_url(('restrita/usuarios/core/'.$usuario->id)) ?>" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                            <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
+                            <a href="<?php echo base_url('restrita/usuarios/core/'.$usuario->id); ?>" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="<?php echo base_url('restrita/usuarios/delete/'.$usuario->id); ?>" class="btn btn-icon btn-danger delete" data-confirm="Deseja apagar o usuario?"><i class="fas fa-times"></i></a>
                             </td>
 
                           </tr>
