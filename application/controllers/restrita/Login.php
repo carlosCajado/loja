@@ -18,6 +18,7 @@ class Login extends CI_Controller{
         echo '<pre>';
         print_r($this->input->post());
         exit();
+        
     }
 }
 
