@@ -15,6 +15,35 @@
                   </div>
                   <?php echo form_open('restrita/sistema/');?>
                     <div class="card-body">
+
+                    <?php if($mensagem = $this->session->flashdata('sucesso')): ?>
+                      <div class="alert alert-success alert-dismissible alert-has-icon">
+                      <div class="alert-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="alert-body">
+                        <div class="alert-title">DEU BOM !!</div>
+                          <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                          </button>
+                          <?php echo $mensagem; ?>
+                        </div>
+                    </div>
+
+                    <?php endif; ?>
+
+                    <?php if($mensagem = $this->session->flashdata('erro')): ?>
+                      <div class="alert alert-danger alert-dismissible alert-has-icon">
+                      <div class="alert-icon"><i class="fas fa-dizzy"></i></div>
+                        <div class="alert-body">
+                        <div class="alert-title">Erro</div>
+                          <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                          </button>
+                          <?php echo $mensagem; ?>
+                        </div>
+                    </div>
+
+                    <?php endif; ?>
+
                         <div class="form-row">
                           <div class="form-group col-md-3">
                             <label >Razão Social</label>
@@ -52,7 +81,7 @@
                             <?php echo form_error('sistema_email', '<div class="text-danger">','</div>'); ?>
                           </div>
                           <div class="form-group col-md-3">
-                            <label >Email</label>
+                            <label >URL SITE</label>
                             <input type="url" name="sistema_site_url" class="form-control" value="<?php echo (isset($sistema) ? $sistema->sistema_site_url: set_value('sistema_site_url'));?>">
                             <?php echo form_error('sistema_site_url', '<div class="text-danger">','</div>'); ?>
                           </div>
@@ -67,7 +96,7 @@
                             <input type="text" name="sistema_endereco" class="form-control" value="<?php echo (isset($sistema) ? $sistema->sistema_endereco: set_value('sistema_endereco'));?>">
                             <?php echo form_error('sistema_endereco', '<div class="text-danger">','</div>'); ?>
                           </div>
-                          <div class="form-group col-md-1">
+                          <div class="form-group col-md-">
                             <label >Número</label>
                             <input type="text" name="sistema_numero" class="form-control" value="<?php echo (isset($sistema) ? $sistema->sistema_numero: set_value('sistema_numero'));?>">
                             <?php echo form_error('sistema_numero', '<div class="text-danger">','</div>'); ?>
@@ -77,7 +106,7 @@
                             <input type="text" name="sistema_cidade" class="form-control" value="<?php echo (isset($sistema) ? $sistema->sistema_cidade: set_value('sistema_cidade'));?>">
                             <?php echo form_error('sistema_cidade', '<div class="text-danger">','</div>'); ?>
                           </div>
-                          <div class="form-group col-md-1">
+                          <div class="form-group col-md-3">
                             <label >Estado</label>
                             <input type="text" name="sistema_estado" class="form-control " value="<?php echo (isset($sistema) ? $sistema->sistema_estado: set_value('sistema_estado'));?>">
                             <?php echo form_error('sistema_estado', '<div class="text-danger">','</div>'); ?>
