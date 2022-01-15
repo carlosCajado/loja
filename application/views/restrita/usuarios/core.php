@@ -26,7 +26,7 @@
 
                     } 
                     ?>
-                  <?php echo form_open('restrita/usuarios/core/'.$usuario_id, );?>
+                  <?php echo form_open('restrita/usuarios/core/'.$usuario_id, $atributos);?>
 
                       <div class="card-body">
                         <div class="form-row">
