@@ -15,10 +15,23 @@ class Login extends CI_Controller{
 
     }
     public function auth(){
-        echo '<pre>';
-        print_r($this->input->post());
-        exit();
+        $identity = $this->input->post('email');
+        $password = $this-> input->post('password');
+        $remember =  ($this-> input->post('remember'? TRUE: FALSE));
         
+        if ($this->ion_auth->login($identity, $password, $remember)){
+            $this->session->set_flashdata('Sucesso', 'Seja Bem Vindo(a).');
+            redirect('restrita');
+        }else{
+            $this->session->set_flashdata('erro', 'Verifique seu Email e Senha');
+            redirect('restrita/login');
+            
+        }
+        
+    }
+    public function logout(){
+        $this->ion_auth->logout();
+        redirect('restrita/login');
     }
 }
 

@@ -23,8 +23,23 @@ img.logo{
               <div class="card-header">
                 <h4><?php echo $titulo; ?>
                 <img class="logo" src="/loja/public/assets/img/image-gallery/LOGO.png" width="50%"></h4>
+
               </div>
               <div class="card-body">
+                
+                <?php if($mensagem = $this->session->flashdata('erro')): ?>
+                      <div class="alert alert-danger alert-dismissible alert-has-icon">
+                      <div class="alert-icon"><i class="fas fa-dizzy"></i></div>
+                        <div class="alert-body">
+                        <div class="alert-title">Erro</div>
+                          <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                          </button>
+                          <?php echo $mensagem; ?>
+                        </div>
+                    </div>
+                    
+                <?php endif; ?>
                 <?php
                 $atributo = array(
                   'class' => 'needs-validation'
@@ -56,7 +71,7 @@ img.logo{
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
+                    <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
                       <label class="custom-control-label" for="remember-me">Lembre-me</label>
                     </div>
                   </div>
