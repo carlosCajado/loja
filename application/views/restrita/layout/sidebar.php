@@ -1,8 +1,8 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
-                class="logo-name">Otika</span>
+            <a href="index.html"> <img alt="image" src="../../../../loja/public/assets/img/logo.png" class="header-logo" /> <span
+                class="logo-name">Valhalla</span>
             </a>
             </div>
             <ul class="sidebar-menu">
@@ -13,6 +13,10 @@
                 </li>
                 <li class="dropdown ">
                 <a href="<?php echo base_url('restrita/usuarios');?>" class='"nav-link"'><i data-feather="users"></i><span>Usuários</span></a>
+                </li>
+                </li>
+                <li class="dropdown ">
+                <a href="<?php echo base_url('restrita/marcas');?>" class='"nav-link"'><i data-feather="star"></i><span>Marcas</span></a>
                 </li>
                 <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Configurações</span></a>
