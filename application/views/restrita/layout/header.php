@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-        <?php echo (isset($titulo) ? '<title> CAJADO MOTOS | '.$titulo.'</title>':'<title>CAJADO MOTOS - Novas e Usadas</title>')?>
+        <?php echo (isset($titulo) ? '<title> VALHALLA | '.$titulo.'</title>':'<title> GRUPO VALHALLA  SUPLEMENTOS</title>')?>
    <!-- General CSS Files -->
    <link rel="stylesheet" href="<?php echo base_url('public/assets/css/app.min.css'); ?>">
   <!-- Template CSS -->

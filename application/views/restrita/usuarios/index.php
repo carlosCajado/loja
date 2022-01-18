@@ -12,7 +12,7 @@
                 <div class="card">
                   <div class="card-header d-block">
                     <h4><?php echo $titulo; ?></h4>
-                    <a class="brn btn-primary float-right" href="<?php echo base_url('restrita/usuarios/core');?>">Cadastrar</a>
+                    <a class="btn btn-primary float-right" href="<?php echo base_url('restrita/usuarios/core');?>">Cadastrar</a>
                   </div>
                   <div class="card-body">
 

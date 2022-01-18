@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') or exit ('Ação Não permitida');
 class Usuarios extends CI_Controller{

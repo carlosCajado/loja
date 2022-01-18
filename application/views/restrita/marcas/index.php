@@ -12,7 +12,7 @@
                 <div class="card">
                   <div class="card-header d-block">
                     <h4><?php echo $titulo; ?></h4>
-                    <a class="brn btn-primary float-right" href="<?php echo base_url('restrita/marcas/core');?>">Cadastrar</a>
+                    <a class="btn btn-primary float-right" href="<?php echo base_url('restrita/marcas/core');?>">Cadastrar</a>
                   </div>
                   <div class="card-body">
 
@@ -53,6 +53,7 @@
                             </th>
                             <th>Nome da marca</th>
                             <th>Meta link da marca</th>
+                            <th>Data de cadastro</th>
                             <th>Ativa</th>
                             <th class="nosort">Ação</th>
                           </tr>
@@ -64,6 +65,7 @@
                               <td><?php echo $marca->marca_id; ?></td>
                               <td><?php echo $marca->marca_nome?></td>
                               <td><i data-feather="link"></i>&nbsp;<?php echo $marca->marca_meta_link; ?></td>
+                              <td><?php echo formata_data_banco_com_hora($marca->marca_data_criacao); ?></td>
                               <td><?php echo ($marca->marca_ativa == 1 ? '<span class="badge badge-success">SIM</span>':'<span class="badge badge-danger">Não</span>'); ?></td>
                         
                             <td>
