@@ -306,8 +306,8 @@ class Produtos extends CI_Controller
         $config['upload_path'] = './uploads/produtos/';
         $config['allowed_types'] = 'jpg|png|jpeg';
         $config['max_size'] = 2048;
-        $config['max_width'] = 1000;
-        $config['max_height'] = 1000;
+        $config['max_width'] = 1500;
+        $config['max_height'] = 1500;
         $config['encrypt_name'] = TRUE;
         $config['max_filename'] = 200;
         $config['file_ext_tolower'] = TRUE;
@@ -361,7 +361,7 @@ class Produtos extends CI_Controller
         }
 
         if($this->core_model->get_by_id('produtos', array('produto_id ' => $produto_id, 'produto_ativo' => 1))){
-            $this->session->set_flashdata('erro', 'Não é possivel excluir um produto ativaAAAAAAAAAAAAAAAAA');
+            $this->session->set_flashdata('erro', 'Não é possivel excluir um produto Ativo');
                 redirect('restrita/produtos');
         }
         

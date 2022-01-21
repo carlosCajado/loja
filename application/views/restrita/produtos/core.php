@@ -107,7 +107,7 @@
                                     <label for="">Categoria</label>
                                     <select id="" name="produto_categoria_id" class="form-control">
 
-                                        <option value="">Escocolha...</option>
+                                        <option value="">Escolha...</option>
 
                                         <?php foreach ($categorias as $categoria) :  ?>
 
