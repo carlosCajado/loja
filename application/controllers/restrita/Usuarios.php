@@ -3,7 +3,9 @@ defined('BASEPATH') or exit ('Ação Não permitida');
 class Usuarios extends CI_Controller{
     public function __construct(){
         parent::__construct();
-        //Sessão Válida? 
+        if(!$this->ion_auth->logged_in()){
+            redirect('restrita/login'); 
+        }
 
     }
 public function index(){

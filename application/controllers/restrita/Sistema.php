@@ -116,6 +116,36 @@ class Sistema extends CI_Controller{
             $this->load->view('restrita/layout/footer');
         }
 
-    } 
+    }
+    public function pagseguro(){
+        $this->form_validation->set_rules('config_email','Email de acesso', 'trim|required|valid_email');
+        $this->form_validation->set_rules('config_token','Token', 'trim|required|max_length[100]');
+        if ($this->form_validation->run()){
+            $data = elements(
+                array(
+                    'config_email',
+                    'config_token',
+                    'config_ambiente',
+                    ), $this->input->post()
+            );
+            
+            $this->core_model->update('config_pagseguro', $data, array('config_id' => 1));
+            redirect('restrita/sistema/pagseguro');
+
+        }else{
+
+            $data = array(
+                'titulo' => 'Informações do PagSeguro', 
+                'pagseguro' => $this->core_model->get_by_id('config_pagseguro', array('config_id'=>1)),
+            );
+            // echo'<pre>';
+            // print_r($data);
+            // exit();
+            $this->load->view('restrita/layout/header', $data);
+            $this->load->view('restrita/sistema/pagseguro');
+            $this->load->view('restrita/layout/footer');
+        }
+
+    }  
 }
 

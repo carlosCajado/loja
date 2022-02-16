@@ -72,13 +72,13 @@
                             <?php echo form_error('config_valor_declarado', '<div class="text-danger">','</div>'); ?>
                           </div>
                         </div> 
-                    </div>         
-                      </div>
-                    <div class="card-footer">
+                        <div class="card-footer">
                         <button class="btn btn-primary">Salvar</button>
                       </div>
                     <?php echo form_close();?>
                     </div>
+                    </div>         
+                      </div>
                   </div>
             </div>
             
