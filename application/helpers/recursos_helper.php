@@ -23,7 +23,7 @@ function grandes_marcas_navbar(){
     return $grandes_marcas;
 }
 
-function get_categorias_pai_navbar(){
+function categorias_pai_navbar(){
 
     $CI = & get_instance();
 
@@ -33,10 +33,11 @@ function get_categorias_pai_navbar(){
 
 }
 
-function get_categorias_filhas_navbar($categorias_pai_id = NULL){
+//recupera as categorias filhas de acordo com a categoria_id com parametro
+function categorias_filhas_navbar($categoria_pai_id = NULL){
     $CI = & get_instance();
     
-    $categorias_filhas = $CI->loja_model->get_categorias_filhas($categorias_pai_id);
+    $categorias_filhas = $CI->loja_model->get_categorias_filha($categoria_pai_id);
 
     return $categorias_filhas;
 }
