@@ -43,7 +43,7 @@
             <div class="col-lg-7 col-md-6">
                 <div class="product-details-view-content pt-60">
                     <div class="product-info">
-                        <h2>Today is a good day Framed poster</h2>
+                        <h2><?php echo $produto->produto_nome?></h2>
                         <span class="product-details-ref">Reference: demo_15</span>
                         <div class="rating-box pt-20">
                             <ul class="rating rating-with-review-item">
@@ -57,11 +57,11 @@
                             </ul>
                         </div>
                         <div class="price-box pt-20">
-                            <span class="new-price new-price-2">$57.98</span>
+                            <span class="new-price new-price-2"><?php echo 'R$&nbsp'.$produto->produto_valor?></span>
                         </div>
                         <div class="product-desc">
                             <p>
-                                <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
+                                <span> <?php echo $produto->produto_descricao?>
                                 </span>
                             </p>
                         </div>
@@ -69,7 +69,7 @@
                             <div class="produt-variants-size">
                                 <label>Dimension</label>
                                 <select class="nice-select">
-                                    <option value="1" title="S" selected="selected">40x60cm</option>
+                                    <option value="1" title="S" selected="selected"><?php echo $produto->produto_tamanho?></option>
                                     <option value="2" title="M">60x90cm</option>
                                     <option value="3" title="L">80x120cm</option>
                                 </select>

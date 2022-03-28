@@ -35,7 +35,6 @@ class Produtos_model extends CI_Model{
             'produtos.produto_nome',
             'produtos.produto_valor',
             'produtos.produto_meta_link',
-            'produtos.produto_quantidade_estoque',
             'produtos.produto_descricao',
             'categorias_pai.categoria_pai_nome',
             'categorias_pai.categoria_pai_meta_link',
