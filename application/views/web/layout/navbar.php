@@ -29,10 +29,10 @@
                                                         <?php $categorias_filhas = categorias_filhas_navbar($cat_pai->categoria_pai_id);
                                                         // print_r($cat_pai->categoria_pai_id);
                                                         // die();?>
-                                            <li class="dropdown-holder"><a href="index.html"><?php echo $cat_pai->categoria_pai_nome;?></a>
+                                            <li class="dropdown-holder"><a href="<?php echo base_url('master/'.$cat_pai->categoria_pai_meta_link)?>"><?php echo $cat_pai->categoria_pai_nome;?></a>
                                                 <ul class="hb-dropdown">
                                                 <?php foreach($categorias_filhas as $cat_filha):?>
-                                                            <li class="active"><a href="index.html"> <?php  echo $cat_filha->categoria_nome;?></a></li>
+                                                            <li class="active"><a href="<?php echo base_url('categoria/'.$cat_filha->categoria_meta_link)?>"><?php echo $cat_pai->categoria_pai_nome;?>"> <?php  echo $cat_filha->categoria_nome;?></a></li>
                                                         <?php  endforeach;?>
                                                 </ul>
                                             </li>
