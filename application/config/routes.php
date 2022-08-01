@@ -57,3 +57,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['restrita'] = 'restrita/home/index';
 
 $route['produto/(:any)'] = 'produto/index/$1';
+$route['master/(:any)'] = 'master/index/$1';
+$route['categoria/(:any)'] = 'categoria/index/$1';
+$route['busca'] = 'busca/index/';

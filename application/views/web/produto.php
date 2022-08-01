@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="<?php echo base_url('/'); ?>">Início</a></li>
                 <li><a href="<?php echo base_url('master/'.$produto->categoria_pai_meta_link); ?>"><?php echo $produto->categoria_pai_nome; ?></a></li>
-                <li  class="active">><a href="<?php echo base_url('categoria/'.$produto->categoria_meta_link); ?>"><?php echo $produto->categoria_nome; ?></a></li>
+                <li  class="active"><a href="<?php echo base_url('categoria/'.$produto->categoria_meta_link); ?>"><?php echo $produto->categoria_nome; ?></a></li>
             </ul>
         </div>
     </div>

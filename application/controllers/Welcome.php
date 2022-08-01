@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
 	//habilida o word limited
 	public function __construct(){
 		parent::__construct();
-		$this->load->helper('text');
+
 		
 	}
 

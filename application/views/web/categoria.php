@@ -5,6 +5,7 @@
                     <div class="breadcrumb-content">
                         <ul>
                             <li><a href="<?php echo base_url('/');?>">Home</a></li>
+                            <li><a href="<?php echo base_url('/master/'.$categoria_pai_meta_link);?>"><?php echo $categoria_pai_nome;?></a></li>
                             <li class="active"><?php echo $categoria;?></li>
                         </ul>
                     </div>
