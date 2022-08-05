@@ -1166,17 +1166,37 @@ textarea:focus {
 	cursor: pointer;
 	font-weight: 500;
 	text-transform: capitalize;
-	padding: 13px 70px;
+	padding: 13px 61px;
+	border-radius: 2px;
+	transition: all 0.3s ease-in-out;
+	border-radius: 20px;
+}
+.add-to-cart2 {
+	border: none;
+	font-size: 14px;
+	color: #ffffff;
+	position: relative;
+	background: #090F33;
+	cursor: pointer;
+	font-weight: 500;
+	text-transform: capitalize;
+	padding: 3px 20px;
 	border-radius: 2px;
 	transition: all 0.3s ease-in-out;
 	border-radius: 20px;
 }
 .cart-quantity .add-to-cart:hover {
-  background: #69696b;
+  background: #4d4d53;
   color: #ffffff;
   border-radius: 20px;
 
 }
+.add-to-cart2:hover {
+	background: #4d4d53;
+	color: #ffffff;
+	border-radius: 20px;
+  
+  }
 .cart-plus-minus {
   float: left;
   margin-right: 15px;
