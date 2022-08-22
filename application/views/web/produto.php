@@ -81,15 +81,23 @@
                             </div> -->
                         </div>
                         <div class="single-add-to-cart">
-                            <form action="#" class="cart-quantity">
+                            <?php 
+                            $atributos = array(
+                                'class'=>'cart-quantity'
+
+                            );
+                            ?>
+                            <?php form_open('ajax',  $atributos);?>
+                                <label>Calcular Entrega</label> 
                                 <div class="quantity">
-                                    <label>Calcular Entrega</label>
-                                    <div class="" style="min-width:140px; float:left; margin-right: 10px; position:relative; text-align:left; ">
-                                        <input  style="background-color:aliceblue" class="cart-plus-minus-box" type="text" placeholder="Informe seu CEP">
+                                    <div class="" style="min-width:140px; float:left;  position:relative; text-align:left; ">
+                                        <input  style="background-color:aliceblue" id='cep' class="cart-plus-minus-box cep" type="text" placeholder="Informe seu CEP">
                                     </div>
                                 </div>
-                                <button class="add-to-cart2" type="submit"><img src="<?php echo base_url('public/web/images/entrega.png'); ?>" width="40px" alt=""></button>
-                            </form>
+                            <button type="button" name='produto_id' class="add-to-cart2" id='cal-frete' data-id='<?php echo $produto->produto_id;?>'><img src="<?php echo base_url('public/web/images/entrega.png'); ?>" width="40px" alt=""></button>
+                            <div class="pt-5 text-info" id='retorno-frete'>
+                            </div>
+                            <?php form_close();?>
                         </div>
 
                         <div class="single-add-to-cart">

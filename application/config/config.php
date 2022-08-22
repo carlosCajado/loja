@@ -417,7 +417,8 @@ $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array(
     // para funcionar o ajax request
-    'restrita/produtos/upload.*'
+    'ajax/.*',
+    'restrita/produtos/upload.*',
 );
 
 /*

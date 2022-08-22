@@ -19,7 +19,8 @@ class Produto extends CI_Controller {
                 'produto' => $produto,
                 'scripts' => array(
                     'mask/jquery.mask.min.js',
-                    'mask/custom.js'
+                    'mask/custom.js',
+                    'js/add_produto.js'
                 ),
             );
             $data['fotos_produtos'] = $this->core_model->get_all('produtos_fotos', array('foto_produto_id'=>$produto->produto_id));
